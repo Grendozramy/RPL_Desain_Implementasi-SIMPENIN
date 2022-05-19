@@ -20,11 +20,17 @@
                         @csrf
                         @method('PUT')
                         <div class="form-group">
-                            <label>NAMA PETUGAS</label>
-                            <input type="text" name="nama_petugas" value="{{ old('nama_petugas', $petugas->nama_petugas) }}"
-                                placeholder="Masukkan Nama Petugas"
-                                class="form-control @error('nama_petugas') is-invalid @enderror">
-
+                            <select class="form-control select-category @error('petugas_id') is-invalid @enderror"
+                                name="petugas_id">
+                                <option value="">-- PILIH PETUGAS --</option>
+                                @foreach ($user as $item)
+                                @if($petugas->user_id == $item->id)
+                                <option value="{{ $item->id  }}" selected>{{ $item->name }}</option>
+                            @else
+                                <option value="{{ $item->id  }}">{{ $item->name }}</option>
+                            @endif
+                                @endforeach
+                            </select>
                             @error('nama_petugas')
                             <div class="invalid-feedback" style="display: block">
                                 {{ $message }}

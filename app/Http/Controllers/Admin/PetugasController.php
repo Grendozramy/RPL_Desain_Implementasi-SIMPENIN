@@ -74,7 +74,7 @@ class PetugasController extends Controller
 
             Petugas::create([
                 'user_id' => $user->id,
-                'kode_petugas' => 'PTGR'.Str::upper(Str::random(5)),
+                'kode_petugas' => 'PTG'.Str::upper(Str::random(5)),
                 'nama_petugas' => $request->nama_petugas,
                 'jenis_kelamin' => $request->jenis_kelamin,
             ]);
@@ -108,15 +108,17 @@ class PetugasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Petugas $petugas)
     {
-        $validator = Validator::make($request->all(), [
+        $this->validate($request,[
             'nama_petugas' => 'required',
         ]);
-
-        if ($validator->passes()) {
-            Petugas::findOrFail($id)->update($request->all());
-
+        
+            $petugas = Petugas::findOrFail($petugas->id);
+            $petugas->update([
+                'nama_petugas'  => $request->input('nama_petugas'),
+            ]);
+        if ($petugas) {
             //redirect dengan pesan sukses
             return redirect()->route('admin.petugas.index')->with(['success' => 'Data Berhasil Diupdate!']);
         }else{
