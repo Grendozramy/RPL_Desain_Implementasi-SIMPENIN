@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Balita;
+use App\Models\Anak;
+use Carbon\Carbon;
 
 class Gizi extends Model
 {
@@ -17,8 +18,10 @@ class Gizi extends Model
      */
     protected $guarded = [];
 
-    public function balita()
+    public function anak()
     {
-        return $this->belongsTo(Balita::class, 'databalita_id');
+        return $this->hasOne(Anak::class, 'dataanak_id');
     }
+
+    
 }

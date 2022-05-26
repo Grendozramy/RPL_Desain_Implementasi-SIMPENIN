@@ -47,8 +47,8 @@
                             @foreach ($gizis as $no => $gizi)
                                 <tr>
                                     <th scope="row" style="text-align: center">{{ ++$no + ($gizis->currentPage()-1) * $gizis->perPage() }}</th>
-                                    <td>{{ $gizi->balita->nama_balita}}</td>
-                                    <td>{{ $gizi->balita->jenis_kelamin }}</td>
+                                    <td>{{ $gizi->nama_anak}}</td>
+                                    <td>{{ $gizi->jenis_kelamin}}</td>
                                     <td class="text-center">
                                         @can('gizi.edit')
                                             <a href="{{ route('admin.gizi.edit', $gizi->id) }}" class="btn btn-sm btn-primary">

@@ -14,18 +14,19 @@ class  PermissionsTableSeeder extends Seeder
      */
     public function run()
     {
-        //permission for balita
-        Permission::create(['name' => 'balita.index']);
-        Permission::create(['name' => 'balita.create']);
-        Permission::create(['name' => 'balita.edit']);
-        Permission::create(['name' => 'balita.show']);
-        Permission::create(['name' => 'balita.delete']);
+        //permission for anak
+        Permission::create(['name' => 'anak.index']);
+        Permission::create(['name' => 'anak.create']);
+        Permission::create(['name' => 'anak.edit']);
+        Permission::create(['name' => 'anak.show']);
+        Permission::create(['name' => 'anak.delete']);
 
         //permission for petugas
         Permission::create(['name' => 'petugas.index']);
         Permission::create(['name' => 'petugas.create']);
         Permission::create(['name' => 'petugas.edit']);
         Permission::create(['name' => 'petugas.delete']);
+        Permission::create(['name' => 'petugas.show']);
 
         //permission for posyandu
         Permission::create(['name' => 'posyandu.index']);

@@ -76,6 +76,10 @@ a:not(.btn-social-icon):not(.btn-social):not(.page-link) .fal,
 a:not(.btn-social-icon):not(.btn-social):not(.page-link) .fab {
   margin-left: 4px; }
 
+  select option[disabled selected] {
+    display: none;
+}
+
 .bg-primary {
   background-color: #6777ef !important; }
 
@@ -349,6 +353,10 @@ select.form-control:not([size]):not([multiple]) {
   flex-direction: column; }
   .custom-switches-stacked .custom-switch {
     margin-bottom: .5rem; }
+
+    option[value=""][disabled] {
+      display: none;
+    }
 
 .custom-switch-indicator {
   display: inline-block;

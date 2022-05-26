@@ -5,8 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Gizi;
+use Carbon\Carbon;
 
-class Balita extends Model
+class Anak extends Model
 {
     use HasFactory;
 
@@ -19,6 +20,12 @@ class Balita extends Model
 
     public function gizi()
     {
-        return $this->hasOne(Gizi::class);
+        return $this->belongsTo(Gizi::class);
+    }
+
+    public function age()
+    {
+        return Carbon::parse($this->attributes['tgl_lahir'])
+        ->diff(\Carbon\Carbon::now())->format('%y Tahun, %m Bulan and %d Hari');
     }
 }

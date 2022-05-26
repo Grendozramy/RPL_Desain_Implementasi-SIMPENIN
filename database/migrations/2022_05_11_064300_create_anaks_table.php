@@ -13,17 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('balitas', function (Blueprint $table) {
+        Schema::create('anaks', function (Blueprint $table) {
             $table->id();
             // $table->string('slug');
-            $table->string('nama_balita');
-            $table->integer('usia_balita');
+            $table->string('nama_anak');
+            $table->string('nik_anak');
+            $table->string('tempat_lahir');
+            $table->date('tgl_lahir');
             $table->string('status');
             $table->integer('tinggi_badan');
             $table->integer('berat_badan');
-            $table->string('hasil_berat_badan');
             $table->string('jenis_kelamin');
-            $table->string('ideal');
             $table->timestamps();
         });
     }

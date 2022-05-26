@@ -20,8 +20,8 @@ class RolesTableSeeder extends Seeder
         ]);
 
         $role1->syncPermissions([
-            'balita.index', 'balita.create', 'balita.edit', 'balita.delete', 'balita.show',
-            'petugas.index', 'petugas.create', 'petugas.edit', 'petugas.delete',
+            'anak.index', 'anak.create', 'anak.edit', 'anak.delete', 'anak.show',
+            'petugas.index', 'petugas.create', 'petugas.edit', 'petugas.delete', 'petugas.show',
             'posyandu.index', 'posyandu.create', 'posyandu.edit', 'posyandu.delete',
             'jadwal.index', 'jadwal.create', 'jadwal.edit', 'jadwal.delete',
             'gizi.index', 'gizi.create', 'gizi.edit', 'gizi.delete', 'gizi.show',
@@ -35,12 +35,12 @@ class RolesTableSeeder extends Seeder
         ]);
 
         $role2->syncPermissions([
-            'balita.index', 'balita.create', 'balita.edit', 'balita.delete', 'balita.show',
+            'anak.index', 'anak.create', 'anak.edit', 'anak.delete', 'anak.show',
             'petugas.index',
             'posyandu.index', 'posyandu.create', 'posyandu.edit', 'posyandu.delete',
             'jadwal.index', 'jadwal.create', 'jadwal.edit', 'jadwal.delete',
             'gizi.index', 'gizi.create', 'gizi.edit', 'gizi.delete', 'gizi.show',
-            'users.index','users.edit',
+            'users.index','users.edit', 'petugas.show',
         ]);
 
         $role3 = Role::create([
@@ -48,12 +48,13 @@ class RolesTableSeeder extends Seeder
         ]);
 
         $role3->syncPermissions([
-            'balita.index', 'balita.show',
+            'anak.index', 'anak.show',
             'posyandu.index',
             'jadwal.index',
             'gizi.index',
             'gizi.show',
-            'users.edit'    
+            'users.edit',
+            'petugas.index','petugas.show',
         ]);
     }
 }

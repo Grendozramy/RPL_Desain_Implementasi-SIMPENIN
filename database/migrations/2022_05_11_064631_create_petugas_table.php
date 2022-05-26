@@ -16,12 +16,17 @@ return new class extends Migration
         Schema::create('petugas', function (Blueprint $table) {
             $table->id();
             // $table->string('slug');
-            $table->string('kode_petugas');
             $table->string('nama_petugas');
+            $table->string('jabatan_petugas');
             $table->string('jenis_kelamin');
+            $table->string('tempat_lahir');
+            $table->date('tanggal_lahir');
+            $table->string('alamat');
+            $table->string('no_telp');
+            $table->string('status');
             $table->timestamps();
 
-            $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

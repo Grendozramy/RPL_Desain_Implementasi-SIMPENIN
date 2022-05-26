@@ -39,8 +39,10 @@
                                 <tr>
                                     <th scope="col" style="text-align: center;width: 6%">NO.</th>
                                     <th scope="col">IMUNISASI</th>
-                                    <th scope="col">USIA (BULAN)</th>
+                                    <th scope="col">USIA</th>
+                                    @can('jadwal.edit')
                                     <th scope="col" style="width: 15%;text-align: center">AKSI</th>
+                                    @endcan
                                 </tr>
                             </thead>
                             <tbody>
@@ -49,8 +51,9 @@
                                     <th scope="row" style="text-align: center">{{ ++$no + ($jadwals->currentPage()-1) * $jadwals->perPage() }}</th>
                                     <td>{{ $jadwal->imunisasi }}</td>
                                     <td>{{ $jadwal->bulan }}</td>
+                                    @can('jadwal.edit')
                                     <td class="text-center">
-                                        @can('jadwal.edit')
+                                       
                                             <a href="{{ route('admin.jadwal.edit', $jadwal->id) }}" class="btn btn-sm btn-primary">
                                                 <i class="fa fa-pencil-alt"></i>
                                             </a>

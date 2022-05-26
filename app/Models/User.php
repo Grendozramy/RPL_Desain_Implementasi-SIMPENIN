@@ -44,8 +44,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function petugas()
-    {
-        return $this->hasOne(Petugas::class);
-    }
+    // public function petugas()
+    // {
+    //     return $this->hasOne(Petugas::class);
+    // }
 }

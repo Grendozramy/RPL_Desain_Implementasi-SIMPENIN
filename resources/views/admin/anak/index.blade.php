@@ -15,17 +15,17 @@
                 </div>
 
                 <div class="card-body">
-                    <form action="{{ route('admin.balita.index') }}" method="GET">
+                    <form action="{{ route('admin.anak.index') }}" method="GET">
                         <div class="form-group">
                             <div class="input-group mb-3">
-                                @can('balita.create')
+                                @can('anak.create')
                                     <div class="input-group-prepend">
-                                        <a href="{{ route('admin.balita.create') }}" class="btn btn-primary" style="padding-top: 10px;"><i class="fa fa-plus-circle">
+                                        <a href="{{ route('admin.anak.create') }}" class="btn btn-primary" style="padding-top: 10px;"><i class="fa fa-plus-circle">
                                             </i>TAMBAH</a>
                                     </div>
                                 @endcan
                                 <input type="text" class="form-control" name="q"
-                                       placeholder="cari berdasarkan Nama Balita">
+                                       placeholder="cari berdasarkan Nama anak">
                                 <div class="input-group-append">
                                     <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> CARI
                                     </button>
@@ -44,26 +44,26 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach ($balitas as $no => $balita)
+                            @foreach ($anaks as $no => $anak)
                                 <tr>
-                                    <th scope="row" style="text-align: center">{{ ++$no + ($balitas->currentPage()-1) * $balitas->perPage() }}</th>
-                                    <td>{{ $balita->nama_balita }}</td>
-                                    <td>{{ $balita->jenis_kelamin }}</td>
+                                    <th scope="row" style="text-align: center">{{ ++$no + ($anaks->currentPage()-1) * $anaks->perPage() }}</th>
+                                    <td>{{ $anak->nama_anak }}</td>
+                                    <td>{{ $anak->jenis_kelamin }}</td>
                                     <td class="text-center">
-                                        @can('balita.edit')
-                                            <a href="{{ route('admin.balita.edit', $balita->id) }}" class="btn btn-sm btn-primary">
+                                        @can('anak.edit')
+                                            <a href="{{ route('admin.anak.edit', $anak->id) }}" class="btn btn-sm btn-primary">
                                                 <i class="fa fa-pencil-alt"></i>
                                             </a>
                                         @endcan
 
-                                        @can('balita.show')
-                                            <a href="{{ route('admin.balita.show', $balita->id) }}" class="btn btn-sm btn-info">
+                                        @can('anak.show')
+                                            <a href="{{ route('admin.anak.show', $anak->id) }}" class="btn btn-sm btn-info">
                                                 <i class="fa fa-eye"></i>
                                             </a>
                                         @endcan
 
-                                        @can('balita.delete')
-                                            <button onClick="Delete(this.id)" class="btn btn-sm btn-danger" id="{{ $balita->id }}">
+                                        @can('anak.delete')
+                                            <button onClick="Delete(this.id)" class="btn btn-sm btn-danger" id="{{ $anak->id }}">
                                                 <i class="fa fa-trash"></i>
                                             </button>
                                         @endcan
@@ -73,7 +73,7 @@
                             </tbody>
                         </table>
                         <div style="text-align: center">
-                            {{$balitas->links("vendor.pagination.bootstrap-4")}}
+                            {{$anaks->links("vendor.pagination.bootstrap-4")}}
                         </div>
                     </div>
                 </div>
@@ -104,7 +104,7 @@
 
                     //ajax delete
                     jQuery.ajax({
-                        url: "{{ route("admin.balita.index") }}/"+id,
+                        url: "{{ route("admin.anak.index") }}/"+id,
                         data:     {
                             "id": id,
                             "_token": token

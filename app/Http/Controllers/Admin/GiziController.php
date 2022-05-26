@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Balita;
+use App\Models\Anak;
 use App\Models\Gizi;
 use Illuminate\Http\Request;
 
@@ -24,14 +24,13 @@ class GiziController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Balita $balita)
+    public function index()
     {
-        $gizis = Gizi::latest()->when(request()->q, function($gizis) {
-            $gizis = $gizis->where('nama_balita', 'like', '%'. request()->q . '%');
+        $gizis = Anak::latest()->when(request()->q, function($gizis) {
+            $gizis = $gizis->where('nama_anak', 'like', '%'. request()->q . '%');
         })->paginate(10);
-        
 
-        return view('admin.gizi.index', compact('gizis', 'balita'));
+        return view('admin.gizi.index', compact('gizis'));
     }
 
     /**
@@ -41,8 +40,8 @@ class GiziController extends Controller
      */
     public function create()
     {   
-        $balita = Balita::latest()->get();
-        return view('admin.gizi.create', compact('balita'));
+        $anak = Anak::latest()->get();
+        return view('admin.gizi.create', compact('anak'));
     }
 
     /**
@@ -54,7 +53,7 @@ class GiziController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'databalita_id'       => 'required',
+            'dataanak_id'       => 'required',
             'BBU'       => 'required',
             'TBU'            => 'required',
             'BBTB'            => 'required',
@@ -67,7 +66,7 @@ class GiziController extends Controller
         ]);
 
         $gizi = gizi::create([
-            'databalita_id'       => $request->input('databalita_id'),
+            'dataanak_id'       => $request->input('dataanak_id'),
             'BBU'       => $request->input('BBU'),
             'TBU'            => $request->input('TBU'),
             'BBTB'            => $request->input('BBTB'),
@@ -91,9 +90,9 @@ class GiziController extends Controller
 
     public function show($id)
     {
-        $balita = Balita::latest()->get();
+        $anak = Anak::latest()->get();
         $gizi = Gizi::findOrFail($id);
-        return view('admin.gizi.show', compact('gizi', 'balita'));
+        return view('admin.gizi.show', compact('gizi', 'anak'));
     
     }
 
@@ -105,8 +104,8 @@ class GiziController extends Controller
      */
     public function edit(gizi $gizi)
     {   
-        $balita = Balita::latest()->get();
-        return view('admin.gizi.edit', compact('gizi', 'balita'));
+        $anak = Anak::latest()->get();
+        return view('admin.gizi.edit', compact('gizi', 'anak'));
     }
 
     /**
@@ -119,7 +118,6 @@ class GiziController extends Controller
     public function update(Request $request, gizi $gizi)
     {
         $this->validate($request,[
-            'databalita_id'       => 'required',
             'BBU'       => 'required',
             'TBU'            => 'required',
             'BBTB'            => 'required',
@@ -133,7 +131,6 @@ class GiziController extends Controller
 
             $gizi = gizi::findOrFail($gizi->id);
             $gizi->update([
-                'databalita_id'       => $request->input('databalita_id'),
                 'BBU'       => $request->input('BBU'),
                 'TBU'            => $request->input('TBU'),
                 'BBTB'            => $request->input('BBTB'),

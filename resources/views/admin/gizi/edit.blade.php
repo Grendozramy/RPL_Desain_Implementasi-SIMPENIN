@@ -22,18 +22,18 @@
 
                         <div class="form-group">
                             <label>NAMA ANAK</label>
-                            <select class="form-control select-category @error('databalita_id') is-invalid @enderror"
-                                name="databalita_id">
+                            <select class="form-control select-category @error('dataanak_id') is-invalid @enderror"
+                                name="dataanak_id" disabled>
                                 <option value="">-- PILIH NAMA ANAK --</option>
-                                @foreach ($balita as $item)
-                                    @if($gizi->databalita_id == $item->id)
-                                        <option value="{{ $item->id  }}" selected>{{ $item->nama_balita }}</option>
+                                @foreach ($anak as $item)
+                                    @if($gizi->dataanak_id == $item->id)
+                                        <option value="{{ $item->id  }}" selected>{{ $item->nama_anak }}</option>
                                     @else
-                                        <option value="{{ $item->id  }}">{{ $item->nama_balita }}</option>
+                                        <option value="{{ $item->id  }}">{{ $item->nama_anak }}</option>
                                     @endif
                                 @endforeach
                             </select>
-                            @error('databalita_id')
+                            @error('dataanak_id')
                             <div class="invalid-feedback" style="display: block">
                                 {{ $message }}
                             </div>
@@ -44,18 +44,18 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>JENIS KELAMIN</label>
-                                    <select class="form-control select-category @error('databalita_id') is-invalid @enderror"
-                                        name="databalita_id">
+                                    <select class="form-control select-category @error('dataanak_id') is-invalid @enderror"
+                                        name="dataanak_id" disabled>
                                         <option value="">-- PILIH --</option>
-                                        @foreach ($balita as $item)
-                                            @if($gizi->databalita_id == $item->id)
+                                        @foreach ($anak as $item)
+                                            @if($gizi->dataanak_id == $item->id)
                                                 <option value="{{ $item->id  }}" selected>{{ $item->jenis_kelamin }}</option>
                                             @else
                                                 <option value="{{ $item->id  }}">{{ $item->jenis_kelamin }}</option>
                                             @endif
                                         @endforeach
                                     </select>
-                                    @error('databalita_id')
+                                    @error('dataanak_id')
                                     <div class="invalid-feedback" style="display: block">
                                         {{ $message }}
                                     </div>
@@ -64,19 +64,10 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>USIA (BULAN)</label>
-                                    <select class="form-control select-category @error('databalita_id') is-invalid @enderror"
-                                        name="databalita_id">
-                                        <option value="">-- PILIH --</option>
-                                        @foreach ($balita as $item)
-                                            @if($gizi->databalita_id == $item->id)
-                                                <option value="{{ $item->id  }}" selected>{{ $item->usia_balita }}</option>
-                                            @else
-                                                <option value="{{ $item->id  }}">{{ $item->usia_balita }}</option>
-                                            @endif
-                                        @endforeach
-                                    </select>
-                                    @error('databalita_id')
+                                    <label>USIA</label>
+                                        <input type="text" name="usia" value="{{ old('tgl_lahir', $item->age()) }}" placeholder="BBU"
+                                        class="form-control @error('usia') is-invalid @enderror" disabled>
+                                    @error('dataanak_id')
                                     <div class="invalid-feedback" style="display: block">
                                         {{ $message }}
                                     </div>
@@ -89,18 +80,18 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>TINGGI BADAN (CM)</label>
-                                    <select class="form-control select-category @error('databalita_id') is-invalid @enderror"
-                                        name="databalita_id">
+                                    <select class="form-control select-category @error('dataanak_id') is-invalid @enderror"
+                                        name="dataanak_id" disabled>
                                         <option value="">-- PILIH --</option>
-                                        @foreach ($balita as $item)
-                                            @if($gizi->databalita_id == $item->id)
+                                        @foreach ($anak as $item)
+                                            @if($gizi->dataanak_id == $item->id)
                                                 <option value="{{ $item->id  }}" selected>{{ $item->tinggi_badan }}</option>
                                             @else
                                                 <option value="{{ $item->id  }}">{{ $item->tinggi_badan }}</option>
                                             @endif
                                         @endforeach
                                     </select>
-                                    @error('databalita_id')
+                                    @error('dataanak_id')
                                     <div class="invalid-feedback" style="display: block">
                                         {{ $message }}
                                     </div>
@@ -110,18 +101,18 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>BERAT BADAN (KG)</label>
-                                    <select class="form-control select-category @error('databalita_id') is-invalid @enderror"
-                                        name="databalita_id">
+                                    <select class="form-control select-category @error('dataanak_id') is-invalid @enderror"
+                                        name="dataanak_id" disabled>
                                         <option value="">-- PILIH --</option>
-                                        @foreach ($balita as $item)
-                                            @if($gizi->databalita_id == $item->id)
+                                        @foreach ($anak as $item)
+                                            @if($gizi->dataanak_id == $item->id)
                                                 <option value="{{ $item->id  }}" selected>{{ $item->berat_badan }}</option>
                                             @else
                                                 <option value="{{ $item->id  }}">{{ $item->berat_badan }}</option>
                                             @endif
                                         @endforeach
                                     </select>
-                                    @error('databalita_id')
+                                    @error('dataanak_id')
                                     <div class="invalid-feedback" style="display: block">
                                         {{ $message }}
                                     </div>

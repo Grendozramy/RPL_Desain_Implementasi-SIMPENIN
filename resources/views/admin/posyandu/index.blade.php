@@ -42,7 +42,9 @@
                                 <th scope="col">NAMA POSYANDU</th>
                                 <th scope="col">TEMPAT</th>
                                 <th scope="col">PETUGAS</th>
+                                @can('posyandu.edit')
                                 <th scope="col" style="width: 15%;text-align: center">AKSI</th>
+                                @endcan
                             </tr>
                             </thead>
                             <tbody>
@@ -53,8 +55,9 @@
                                     <td>{{ $posyandu->nama_posyandu }}</td>
                                     <td>{{ $posyandu->tempat }}</td>
                                     <td>{{ $posyandu->petugas->nama_petugas}}</td>
+                                    @can('posyandu.edit')
                                     <td class="text-center">
-                                        @can('posyandu.edit')
+                                        
                                             <a href="{{ route('admin.posyandu.edit', $posyandu->id) }}" class="btn btn-sm btn-primary">
                                                 <i class="fa fa-pencil-alt"></i>
                                             </a>

@@ -28,23 +28,29 @@
     <div id="app">
         <div class="main-wrapper main-wrapper-1">
             <div class="navbar-bg"></div>
-            <nav class="navbar navbar-expand-lg main-navbar">
+            <nav class="navbar navbar-expand-lg main-navbar"> 
                 <form class="form-inline mr-auto">
                     <ul class="navbar-nav mr-3">
                         <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i
                                     class="fas fa-bars"></i></a></li>
                     </ul>
                 </form>
+                <div class="navbar-header mx-auto d-flex justify-content-center">
+                    <a class="navbar-brand mx-auto" href="" style="color: #6777EF">
+                        <img src="{{ asset('assets/img/logo.jpg') }}" alt="logo" height="50px">
+                        SISTEM PENDATAAN IMUNISASI
+                    </a>
+                </div>
                 <ul class="navbar-nav navbar-right">
 
                     <li class="dropdown"><a href="#" data-toggle="dropdown"
                             class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                             <img alt="image" src="{{ asset('assets/img/kozak.jpg') }}"
                                 class="rounded-circle mr-1">
-                            <div class="d-sm-none d-lg-inline-block">Hi, {{ auth()->user()->name }}</div>
+                            <div class="d-sm-none d-lg-inline-block " style="color: #6777EF">Hi, {{ auth()->user()->name }}</div>
                         </a>  
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a href="{{ route('admin.user.index') }}" class="dropdown-item">
+                            <a href="{{ route('user.showAuthUser') }}" class="dropdown-item">
                                 <i class="fas fa-fw fa-user mr-2"></i> Profile
                             </a>
                             <a href="{{ route('logout') }}" style="cursor: pointer" onclick="event.preventDefault();
@@ -62,7 +68,7 @@
             <div class="main-sidebar sidebar-style-2">
                 <aside id="sidebar-wrapper">
                     <div class="sidebar-brand">
-                        <a href="{{ route('admin.dashboard.index') }}" class="text-info">SIMPENIN</a>
+                        <a href="{{ route('admin.dashboard.index') }}" style="color: #6777EF">SIMPENIN</a>
                     </div>
                     <div class="sidebar-brand sidebar-brand-sm">
                         <a href="{{ route('admin.dashboard.index') }}"><img src="{{ asset('assets/img/logo.jpg') }}" alt="" height="50px"></a>
@@ -72,9 +78,9 @@
                         <li class="{{ setActive('admin/dashboard') }}"><a class="nav-link"
                                 href="{{ route('admin.dashboard.index') }}"><i class="fas fa-tachometer-alt"></i>
                                 <span>Dashboard</span></a></li>
-                        @can('balita.index')
-                        <li class="{{ setActive('admin/balita') }}"><a class="nav-link"
-                                href="{{ route('admin.balita.index') }}"><i class="fas fa-users"></i>
+                        @can('anak.index')
+                        <li class="{{ setActive('admin/anak') }}"><a class="nav-link"
+                                href="{{ route('admin.anak.index') }}"><i class="fas fa-child"></i>
                                 <span>Informasi Data Anak</span></a></li>
                         @endcan
 

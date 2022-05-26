@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('validasi');
             $table->timestamps();
 
-            $table->foreignId('databalita_id')->constrained('balitas')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('dataanak_id')->constrained('anaks')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

@@ -19,93 +19,21 @@
                         @csrf
                         <div class="form-group">
                             <label>NAMA ANAK</label>
-                            <select class="form-control select-category @error('databalita_id') is-invalid @enderror"
-                                name="databalita_id">
-                                <option value="">-- PILIH NAMA ANAK --</option>
-                                @foreach ($balita as $item)
-                                    <option value="{{ $item->id  }}" selected>{{ $item->nama_balita }}</option>
+                            <select class="form-control select-category @error('dataanak_id') is-invalid @enderror"
+                                name="dataanak_id" id="nama">
+                                @foreach ($anak as $item)
+                                    <option value="{{ $item->id  }}" selected>{{ $item->nama_anak }}</option>
                                 @endforeach
+                                <option value="" selected disabled hidden>-- PILIH --</option>
                             </select>
-                            @error('databalita_id')
+                            @error('dataanak_id')
                             <div class="invalid-feedback" style="display: block">
                                 {{ $message }}
                             </div>
                             @enderror
                         </div>
 
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>JENIS KELAMIN</label>
-                                    <select class="form-control select-category @error('databalita_id') is-invalid @enderror"
-                                        name="databalita_id">
-                                        <option value="">-- PILIH --</option>
-                                        @foreach ($balita as $item)
-                                            <option value="{{ $item->id  }}" selected>{{ $item->jenis_kelamin }}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('databalita_id')
-                                    <div class="invalid-feedback" style="display: block">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>USIA (BULAN)</label>
-                                    <select class="form-control select-category @error('databalita_id') is-invalid @enderror"
-                                        name="databalita_id">
-                                        <option value="">-- PILIH --</option>
-                                        @foreach ($balita as $item)
-                                            <option value="{{ $item->id  }}" selected>{{ $item->usia_balita }}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('databalita_id')
-                                    <div class="invalid-feedback" style="display: block">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>TINGGI BADAN (CM)</label>
-                                    <select class="form-control select-category @error('databalita_id') is-invalid @enderror"
-                                        name="databalita_id">
-                                        <option value="">-- PILIH --</option>
-                                        @foreach ($balita as $item)
-                                            <option value="{{ $item->id  }}" selected>{{ $item->tinggi_badan }}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('databalita_id')
-                                    <div class="invalid-feedback" style="display: block">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>BERAT BADAN (KG)</label>
-                                    <select class="form-control select-category @error('databalita_id') is-invalid @enderror"
-                                        name="databalita_id">
-                                        <option value="">-- PILIH --</option>
-                                        @foreach ($balita as $item)
-                                            <option value="{{ $item->id  }}" selected>{{ $item->berat_badan }}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('databalita_id')
-                                    <div class="invalid-feedback" style="display: block">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
+                        
 
                         <div class="row">
                             <div class="col-md-6">
@@ -253,3 +181,11 @@
     </section>
 </div>
 @stop
+<script>
+ $('#nama').on('change', function(){
+  $('#jenis_kelamin').val($(this).val());
+})
+
+// init
+$('#nama').change();
+</script>

@@ -20,6 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/user/show',[App\Http\Controllers\Admin\UserController::class, 'ShowAuthUser'])->name('user.showAuthUser');
 
 Route::prefix('admin')->group(function () {
 
@@ -38,10 +39,10 @@ Route::prefix('admin')->group(function () {
         Route::resource('/user', App\Http\Controllers\Admin\UserController::class, ['except' => ['show'] ,'as' => 'admin']);
 
         //Balita
-        Route::resource('/balita', App\Http\Controllers\Admin\BalitaController::class, ['as' => 'admin']);
+        Route::resource('/anak', App\Http\Controllers\Admin\AnakController::class, ['as' => 'admin']);
 
         //Petugas
-        Route::resource('/petugas', App\Http\Controllers\Admin\PetugasController::class, ['except' => 'show' ,'as' => 'admin']);
+        Route::resource('/petugas', App\Http\Controllers\Admin\PetugasController::class, ['as' => 'admin']);
 
         //Posyandu
         Route::resource('/posyandu', App\Http\Controllers\Admin\PosyanduController::class, ['except' => 'show' ,'as' => 'admin']);

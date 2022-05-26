@@ -59,7 +59,6 @@
                             <label>Petugas</label>
                             <select class="form-control select-category @error('petugas_id') is-invalid @enderror"
                                 name="petugas_id">
-                                <option value="">-- PILIH PETUGAS --</option>
                                 @foreach ($petugas as $item)
                                     @if($posyandu->petugas_id == $item->id)
                                         <option value="{{ $item->id  }}" selected>{{ $item->nama_petugas }}</option>

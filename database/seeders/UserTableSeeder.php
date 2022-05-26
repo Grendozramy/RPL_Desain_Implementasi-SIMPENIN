@@ -48,17 +48,28 @@ class UserTableSeeder extends Seeder
 
         //assign petugas
         $petugas1 = Petugas::create([
-            'user_id' => $user1->id,
-            'kode_petugas' => 'PTG'.Str::upper(Str::random(5)),
-            'nama_petugas' => $user1->name,
+            // 'user_id' => $user1->id,
+            'nama_petugas' => 'Farhan Gimang',
+            'jabatan_petugas' => 'Ketua',
             'jenis_kelamin' => 'Laki-laki',
+            'tempat_lahir' => 'Cimaja',
+            'tanggal_lahir' => '2001-02-10',
+            'alamat' => 'Rangkasbitung',
+            'no_telp' => '087654321',
+            'status' => 'Aktif',
+            
         ]);
 
         $petugas2 = Petugas::create([
-            'user_id' => $user2->id,
-            'kode_petugas' => 'PTG'.Str::upper(Str::random(5)),
-            'nama_petugas' => $user2->name,
+            // 'user_id' => $user2->id,
+            'nama_petugas' => 'Yamiza Anwar',
+            'jabatan_petugas' => 'Petugas',
             'jenis_kelamin' => 'Laki-laki',
+            'tempat_lahir' => 'Bandung',
+            'tanggal_lahir' => '1992-01-10',
+            'alamat' => 'Purwakarta',
+            'no_telp' => '0877098654',
+            'status' => 'Aktif',
         ]);
     }
 }

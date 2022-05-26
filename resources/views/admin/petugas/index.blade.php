@@ -40,26 +40,29 @@
                                 <th scope="col" style="text-align: center;width: 6%">NO.</th>
                                 <th scope="col">NAMA PETUGAS</th>
                                 <th scope="col">JENIS KELAMIN</th>
-                                <th scope="col">KODE PETUGAS</th>
                                 <th scope="col" style="width: 15%;text-align: center">AKSI</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach ($petugas as $no => $user)
+                            @foreach ($petugas as $no => $item)
                                 <tr>
                                     <th scope="row" style="text-align: center">{{ ++$no + ($petugas->currentPage()-1) * $petugas->perPage() }}</th>
-                                    <td>{{ $user->nama_petugas }}</td>
-                                    <td>{{ $user->jenis_kelamin}}</td>
-                                    <td>{{ $user->kode_petugas}}</td>
+                                    <td>{{ $item->nama_petugas }}</td>
+                                    <td>{{ $item->jenis_kelamin}}</td>
                                     <td class="text-center">
                                         @can('petugas.edit')
-                                            <a href="{{ route('admin.petugas.edit', $user->id) }}" class="btn btn-sm btn-primary">
+                                            <a href="{{ route('admin.petugas.edit', $item->id) }}" class="btn btn-sm btn-primary">
                                                 <i class="fa fa-pencil-alt"></i>
+                                            </a>
+                                        @endcan
+                                        @can('petugas.show')
+                                            <a href="{{ route('admin.petugas.show', $item->id) }}" class="btn btn-sm btn-info">
+                                                <i class="fa fa-eye"></i>
                                             </a>
                                         @endcan
 
                                         @can('petugas.delete')
-                                            <button onClick="Delete(this.id)" class="btn btn-sm btn-danger" id="{{ $user->id }}">
+                                            <button onClick="Delete(this.id)" class="btn btn-sm btn-danger" id="{{ $item->id }}">
                                                 <i class="fa fa-trash"></i>
                                             </button>
                                         @endcan

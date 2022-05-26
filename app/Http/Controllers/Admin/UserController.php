@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -76,6 +77,13 @@ class UserController extends Controller
             //redirect dengan pesan error
             return redirect()->route('admin.user.index')->with(['error' => 'Data Gagal Disimpan!']);
         }
+    }
+
+    public function showAuthUser()
+    {
+        $user = Auth::user();
+        $roles = Role::latest()->get();
+        return view('admin.user.edit',compact('user', 'roles'));
     }
 
     /**

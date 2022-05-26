@@ -57,11 +57,12 @@
                         <div class="form-group">
                             <label>Petugas</label>
                             <select class="form-control select-category @error('petugas_id') is-invalid @enderror"
-                                name="petugas_id">
-                                <option value="">-- PILIH PETUGAS --</option>
+                                name="petugas_id" id="options">
+                                <option value="" disabled selected>-- PILIH PETUGAS --</option>
                                 @foreach ($petugas as $item)
                                     <option value="{{ $item->id  }}" selected>{{ $item->nama_petugas }}</option>
                                 @endforeach
+                            
                             </select>
                             @error('petugas_id')
                             <div class="invalid-feedback" style="display: block">
@@ -81,3 +82,9 @@
     </section>
 </div>
 @stop
+<script type="text/javascript">
+    $('#options').on('change', function (e) {
+    $('.option').hide();
+    $('#option-' + e.target.value).show();
+});
+</script>

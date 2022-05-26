@@ -5,12 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Petugas;
 use Illuminate\Http\Request;
-use Spatie\Permission\Models\Role;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 use App\Models\User;
-use Illuminate\Support\Facades\Validator;
+
 
 class PetugasController extends Controller
 {
@@ -58,28 +54,29 @@ class PetugasController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'username' => 'required|unique:users',
-            'name' => 'required|unique:users',
+            // 'user_id'       => 'required',
             'nama_petugas' => 'required',
+            'jabatan_petugas' => 'required',
+            'jenis_kelamin' => 'required',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
+            'alamat' => 'required',
+            'no_telp' => 'required',
+            'status' => 'required',
         ]);
 
-        DB::transaction(function() use($request){
-            $user = User::create([
-                'username' => Str::lower($request->username),
-                'name' => $request->nama_petugas,
-                'password' => Hash::make('password'),
-            ]);
-
-            $user->assignRole('Petugas');
-
-            Petugas::create([
-                'user_id' => $user->id,
-                'kode_petugas' => 'PTG'.Str::upper(Str::random(5)),
-                'nama_petugas' => $request->nama_petugas,
-                'jenis_kelamin' => $request->jenis_kelamin,
-            ]);
-        });
-        if($user){
+        $petugas = Petugas::create([
+            // 'user_id'       => $request->input('dataanak_id'),
+            'nama_petugas'       => $request->input('nama_petugas'),
+            'jabatan_petugas'            => $request->input('jabatan_petugas'),
+            'jenis_kelamin'            => $request->input('jenis_kelamin'),
+            'tempat_lahir'            => $request->input('tempat_lahir'),
+            'tanggal_lahir'            => $request->input('tanggal_lahir'),
+            'alamat'            => $request->input('alamat'),
+            'no_telp'            => $request->input('no_telp'),
+            'status'            => $request->input('status'),
+        ]);
+        if($petugas){
             //redirect dengan pesan sukses
             return redirect()->route('admin.petugas.index')->with(['success' => 'Data Berhasil Disimpan!']);
         }else{
@@ -97,8 +94,7 @@ class PetugasController extends Controller
     public function edit($id)
     {
         $petugas = Petugas::findOrFail($id);
-        $user = User::latest()->get();
-        return view('admin.petugas.edit', compact('petugas', 'user'));
+        return view('admin.petugas.edit', compact('petugas'));
     }
 
     /**
@@ -111,12 +107,28 @@ class PetugasController extends Controller
     public function update(Request $request, Petugas $petugas)
     {
         $this->validate($request,[
+            // 'user_id'       => 'required',
             'nama_petugas' => 'required',
+            'jabatan_petugas' => 'required',
+            'jenis_kelamin' => 'required',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
+            'alamat' => 'required',
+            'no_telp' => 'required',
+            'status' => 'required',
         ]);
-        
+
             $petugas = Petugas::findOrFail($petugas->id);
             $petugas->update([
-                'nama_petugas'  => $request->input('nama_petugas'),
+                // 'user_id'       => $request->input('dataanak_id'),
+                'nama_petugas'       => $request->input('nama_petugas'),
+                'jabatan_petugas'            => $request->input('jabatan_petugas'),
+                'jenis_kelamin'            => $request->input('jenis_kelamin'),
+                'tempat_lahir'            => $request->input('tempat_lahir'),
+                'tanggal_lahir'            => $request->input('tanggal_lahir'),
+                'alamat'            => $request->input('alamat'),
+                'no_telp'            => $request->input('no_telp'),
+                'status'            => $request->input('status'),
             ]);
         if ($petugas) {
             //redirect dengan pesan sukses
@@ -125,6 +137,13 @@ class PetugasController extends Controller
             //redirect dengan pesan error
             return redirect()->route('admin.petugas.index')->with(['error' => 'Data Gagal Diupdate!']);
         }
+    }
+
+    public function show($id)
+    {
+        $petugas = Petugas::findOrFail($id);
+        return view('admin.petugas.show', compact('petugas'));
+    
     }
 
     /**
@@ -136,7 +155,6 @@ class PetugasController extends Controller
     public function destroy($id)
     {
         $petugas = Petugas::findOrFail($id);
-        User::findOrFail($petugas->user_id)->delete();
         $petugas->delete();
 
         if($petugas){

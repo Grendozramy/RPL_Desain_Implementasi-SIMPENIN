@@ -16,7 +16,46 @@ class GiziTableSeeder extends Seeder
     public function run()
     {
         Gizi::create([
-            'databalita_id'       => '1',
+            'dataanak_id'       => '1',
+            'BBU'       => 'Gizi Baik',
+            'TBU'            => 'Normal',
+            'BBTB'            => 'Normal',
+            'Z_BBU'            => '-0.17',
+            'Z_TBU'            => '-0.98',
+            'Z_BBTB'            => '0.44',
+            'status_gizi'            => 'Gizi Normal',
+            'z_score'            => '51.00',
+            'validasi'            => 'sesuai',
+        ]);
+
+        Gizi::create([
+            'dataanak_id'       => '2',
+            'BBU'       => 'Gizi Baik',
+            'TBU'            => 'Normal',
+            'BBTB'            => 'Normal',
+            'Z_BBU'            => '-0.17',
+            'Z_TBU'            => '-0.98',
+            'Z_BBTB'            => '0.44',
+            'status_gizi'            => 'Gizi Normal',
+            'z_score'            => '51.00',
+            'validasi'            => 'sesuai',
+        ]);
+
+        Gizi::create([
+            'dataanak_id'       => '3',
+            'BBU'       => 'Gizi Baik',
+            'TBU'            => 'Normal',
+            'BBTB'            => 'Normal',
+            'Z_BBU'            => '-0.17',
+            'Z_TBU'            => '-0.98',
+            'Z_BBTB'            => '0.44',
+            'status_gizi'            => 'Gizi Normal',
+            'z_score'            => '51.00',
+            'validasi'            => 'sesuai',
+        ]);
+
+        Gizi::create([
+            'dataanak_id'       => '4',
             'BBU'       => 'Gizi Baik',
             'TBU'            => 'Normal',
             'BBTB'            => 'Normal',
