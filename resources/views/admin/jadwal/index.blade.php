@@ -1,5 +1,7 @@
 @extends('layouts.backend.app1')
 
+@section('title', 'Informasi Data Jadwal')
+
 @section('content')
 <div class="main-content">
     <section class="section">

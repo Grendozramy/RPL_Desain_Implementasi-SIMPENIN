@@ -1,0 +1,78 @@
+<?php
+
+namespace Tests\Feature;
+
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Tests\TestCase;
+
+class UserTest extends TestCase
+{
+    /**
+     * A basic feature test example.
+     *
+     * @return void
+     */
+    public function test_dashboard()
+    {
+        $response = $this->get('/dashboard');
+
+        $response->assertStatus(404);
+    }
+
+    public function test_permission()
+    {
+        $response = $this->get('/permission');
+
+        $response->assertStatus(404);
+    }
+
+    public function test_user()
+    {
+        $response = $this->get('/user');
+
+        $response->assertStatus(404);
+    }
+    public function test_anak()
+    {
+        $response = $this->get('/anak');
+
+        $response->assertStatus(404);
+    }
+    
+    public function test_petugas()
+    {
+        $response = $this->get('/petugas');
+
+        $response->assertStatus(404);
+    }
+
+    public function test_posyandu()
+    {
+        $response = $this->get('/posyandu');
+
+        $response->assertStatus(404);
+    }
+
+    public function test_jadwal()
+    {
+        $response = $this->get('/jadwal');
+
+        $response->assertStatus(404);
+    }
+
+    public function test_gizi()
+    {
+        $response = $this->get('/gizi');
+
+        $response->assertStatus(404);
+    }
+
+    public function test_role()
+    {
+        $response = $this->get('/role');
+
+        $response->assertStatus(404);
+    }
+
+}

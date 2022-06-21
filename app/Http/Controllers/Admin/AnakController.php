@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Anak;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Gizi;
 
 class AnakController extends Controller
 {
@@ -73,6 +74,8 @@ class AnakController extends Controller
             'jenis_kelamin'  => $request->input('jenis_kelamin'),
         ]);
 
+
+
         if($anak){
             //redirect dengan pesan sukses
             return redirect()->route('admin.anak.index')->with(['success' => 'Data Berhasil Disimpan!']);
@@ -118,7 +121,7 @@ class AnakController extends Controller
 
             $anak = Anak::findOrFail($anak->id);
             $anak->update([
-                'nama_anak'  => $request->input('nama_anak'),
+            'nama_anak'  => $request->input('nama_anak'),
             'nik_anak'  => $request->input('nik_anak'),
             'tempat_lahir'  => $request->input('tempat_lahir'),
             'tgl_lahir'  => $request->input('tgl_lahir'),

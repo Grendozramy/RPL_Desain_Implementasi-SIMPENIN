@@ -54,3 +54,9 @@ Route::prefix('admin')->group(function () {
         Route::resource('/gizi', App\Http\Controllers\Admin\GiziController::class, ['as' => 'admin']);
     });
 });
+
+// Route::prefix('pergizi')->middleware(['auth'])->group(function(){
+// 	Route::get('gizi', [App\Http\Controllers\GiziController::class, 'index'])->name('gizi.index');
+// 	Route::get('gizi/{id}', [App\Http\Controllers\GiziController::class, 'bayar'])->name('gizi.bayar');
+	
+// });

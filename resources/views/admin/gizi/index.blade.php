@@ -1,5 +1,7 @@
 @extends('layouts.backend.app1')
 
+@section('title', 'Informasi Data Gizi')
+
 @section('content')
 <div class="main-content">
     <section class="section">
@@ -62,11 +64,7 @@
                                             </a>
                                         @endcan
 
-                                        @can('gizi.delete')
-                                            <button onClick="Delete(this.id)" class="btn btn-sm btn-danger" id="{{ $gizi->id }}">
-                                                <i class="fa fa-trash"></i>
-                                            </button>
-                                        @endcan
+                                        
                                     </td>
                                 </tr>
                             @endforeach

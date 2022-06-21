@@ -1,5 +1,7 @@
 @extends('layouts.backend.app1')
 
+@section('title', 'Informasi Data Posyandu')
+
 @section('content')
 <div class="main-content">
     <section class="section">
@@ -51,7 +53,7 @@
                             @foreach ($posyandus as $no => $posyandu)
                                 <tr>
                                     <th scope="row" style="text-align: center">{{ ++$no + ($posyandus->currentPage()-1) * $posyandus->perPage() }}</th>
-                                    <td>{{ $posyandu->jadwal }}</td>
+                                    <td>{{ $posyandu->getCreatedAtAttibute()}}</td>
                                     <td>{{ $posyandu->nama_posyandu }}</td>
                                     <td>{{ $posyandu->tempat }}</td>
                                     <td>{{ $posyandu->petugas->nama_petugas}}</td>

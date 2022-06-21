@@ -20,12 +20,12 @@ class Anak extends Model
 
     public function gizi()
     {
-        return $this->belongsTo(Gizi::class);
+        return $this->hasOne(Gizi::class);
     }
 
     public function age()
     {
         return Carbon::parse($this->attributes['tgl_lahir'])
-        ->diff(\Carbon\Carbon::now())->format('%y Tahun, %m Bulan and %d Hari');
+        ->diff(\Carbon\Carbon::now())->format('%y Tahun, %m Bulan dan %d Hari');
     }
 }

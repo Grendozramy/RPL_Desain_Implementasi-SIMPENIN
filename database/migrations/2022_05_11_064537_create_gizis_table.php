@@ -19,12 +19,9 @@ return new class extends Migration
             $table->string('BBU');
             $table->string('TBU');
             $table->string('BBTB');
-            $table->double('Z_BBU', 8, 2);
-            $table->double('Z_TBU', 8, 2);
-            $table->double('Z_BBTB', 8, 2);
-            $table->string('status_gizi');
-            $table->double('z_score', 8, 2);
-            $table->string('validasi');
+            $table->string('Z_BBU');
+            $table->string('Z_TBU');
+            $table->string('Z_BBTB');
             $table->timestamps();
 
             $table->foreignId('dataanak_id')->constrained('anaks')->onUpdate('cascade')->onDelete('cascade');

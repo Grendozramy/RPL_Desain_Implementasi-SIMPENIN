@@ -48,15 +48,15 @@ class AnakTableSeeder extends Seeder
             'jenis_kelamin' => 'Laki-laki',
         ]);
 
-        Anak::create([
-            'nama_anak' => 'Kurniawan',
-            'nik_anak' => '3788433829229019',
-            'tempat_lahir' => 'Bandung',
-            'tgl_lahir' => '2021-02-10',
-            'status' => 'Bayi',
-            'tinggi_badan' => '75',
-            'berat_badan' => '3',
-            'jenis_kelamin' => 'Laki-laki',
-        ]);
+        // Anak::create([
+        //     'nama_anak' => 'Kurniawan',
+        //     'nik_anak' => '3788433829229019',
+        //     'tempat_lahir' => 'Bandung',
+        //     'tgl_lahir' => '2021-02-10',
+        //     'status' => 'Bayi',
+        //     'tinggi_badan' => '97',
+        //     'berat_badan' => '16',
+        //     'jenis_kelamin' => 'Laki-laki',
+        // ]);
     }
 }

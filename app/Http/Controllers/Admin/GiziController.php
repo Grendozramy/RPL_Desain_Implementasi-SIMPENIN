@@ -38,11 +38,18 @@ class GiziController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(gizi $gizi)
     {   
         $anak = Anak::latest()->get();
-        return view('admin.gizi.create', compact('anak'));
+        return view('admin.gizi.create1', compact('anak','gizi'));
     }
+
+    // public function autocomplete($id)
+    // {
+    //     $anak = Anak::latest()->get();
+    //     $gizi = Gizi::findOrFail($id);
+    //     return response()->json($anak, $gizi);
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -60,9 +67,6 @@ class GiziController extends Controller
             'Z_BBU'            => 'required',
             'Z_TBU'            => 'required',
             'Z_BBTB'            => 'required',
-            'status_gizi'            => 'required',
-            'z_score'            => 'required',
-            'validasi'            => 'required',
         ]);
 
         $gizi = gizi::create([
@@ -73,9 +77,6 @@ class GiziController extends Controller
             'Z_BBU'            => $request->input('Z_BBU'),
             'Z_TBU'            => $request->input('Z_TBU'),
             'Z_BBTB'            => $request->input('Z_BBTB'),
-            'status_gizi'            => $request->input('status_gizi'),
-            'z_score'            => $request->input('z_score'),
-            'validasi'            => $request->input('validasi'),
         ]);
 
         if($gizi){
@@ -124,9 +125,6 @@ class GiziController extends Controller
             'Z_BBU'            => 'required',
             'Z_TBU'            => 'required',
             'Z_BBTB'            => 'required',
-            'status_gizi'            => 'required',
-            'z_score'            => 'required',
-            'validasi'            => 'required',
         ]);
 
             $gizi = gizi::findOrFail($gizi->id);
@@ -137,9 +135,6 @@ class GiziController extends Controller
                 'Z_BBU'            => $request->input('Z_BBU'),
                 'Z_TBU'            => $request->input('Z_TBU'),
                 'Z_BBTB'            => $request->input('Z_BBTB'),
-                'status_gizi'            => $request->input('status_gizi'),
-                'z_score'            => $request->input('z_score'),
-                'validasi'            => $request->input('validasi'),
             ]);
 
         if($gizi){

@@ -163,6 +163,21 @@
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <div class="form-group" style="display: none">
+                                            <label class="font-weight-bold">ROLE</label>
+                
+                                            @foreach ($roles as $role)
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox" name="role[]" value="{{ $role->name }}"
+                                                        id="check-{{ $role->id }}" {{ $user->roles->contains($role->id) ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="check-{{ $role->id }}">
+                                                        {{ $role->name }}
+                                                    </label>
+                                                </div>
+                                            @endforeach
+                                        </div>
+
                                         <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-paper-plane"></i>
                                             UPDATE</button>
                                             {{-- <a href="{{ route('admin.dashboard.index') }}" type="submit" class="btn btn-primary mr-1" ><i class="fa fa-arrow-left"></i>

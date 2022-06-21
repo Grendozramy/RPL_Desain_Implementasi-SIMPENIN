@@ -124,51 +124,6 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>BB/U</label>
-                                    <input type="text" name="BBU" value="{{ old('BBU', $gizi->BBU) }}" placeholder="BBU"
-                                        class="form-control @error('BBU') is-invalid @enderror">
-
-                                    @error('BBU')
-                                    <div class="invalid-feedback" style="display: block">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>TB/U</label>
-                                    <input type="text" name="TBU" value="{{ old('TBU', $gizi->TBU) }}" placeholder="TBU"
-                                        class="form-control @error('TBU') is-invalid @enderror">
-
-                                    @error('TBU')
-                                    <div class="invalid-feedback" style="display: block">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>BB/TB</label>
-                                    <input type="text" name="BBTB" value="{{ old('BBTB', $gizi->BBTB) }}" placeholder="BBTB"
-                                        class="form-control @error('BBTB') is-invalid @enderror">
-
-                                    @error('BBTB')
-                                    <div class="invalid-feedback" style="display: block">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
                                     <label>Z_BB/U</label>
                                     <input type="text" name="Z_BBU" value="{{ old('Z_BBU', $gizi->Z_BBU) }}" placeholder="Z_BBU"
                                         class="form-control @error('Z_BBU') is-invalid @enderror">
@@ -214,11 +169,17 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>STATUS GIZI</label>
-                                    <input type="text" name="status_gizi" value="{{ old('status_gizi', $gizi->status_gizi) }}" placeholder="Status Gizi"
-                                        class="form-control @error('status_gizi') is-invalid @enderror">
+                                    <label>BB/U</label>
+                                    <select class="form-control select-category @error('BBU') is-invalid @enderror"
+                                    name="BBU">
+                                        <option value="" selected disabled hidden >-- PILIH --</option>
+                                        <option value="Gizi Baik" <?php if($gizi['BBU'] == 'Gizi Baik'){ echo 'selected';}?>>Gizi Baik</option>
+                                        <option value="Gizi Kurang" <?php if($gizi['BBU'] == 'Gizi Kurang'){ echo 'selected';}?>>Gizi Kurang</option>
+                                        <option value="Gizi Lebih" <?php if($gizi['BBU'] == 'Gizi Lebih'){ echo 'selected';}?>>Gizi Lebih</option>
+                                    </select>
+                                    
 
-                                    @error('status_gizi')
+                                    @error('BBU')
                                     <div class="invalid-feedback" style="display: block">
                                         {{ $message }}
                                     </div>
@@ -227,11 +188,16 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Z_SCORE</label>
-                                    <input type="text" name="z_score" value="{{ old('z_score', $gizi->z_score) }}" placeholder="Z_Score"
-                                        class="form-control @error('z_score') is-invalid @enderror">
+                                    <label>TB/U</label>                                   
+                                    <select class="form-control select-category @error('TBU') is-invalid @enderror"
+                                    name="TBU">
+                                        <option value="" selected disabled hidden >-- PILIH --</option>
+                                        <option value="Pendek" <?php if($gizi['TBU'] == 'Pendek'){ echo 'selected';}?>>Pendek</option>
+                                        <option value="Normal" <?php if($gizi['TBU'] == 'Normal'){ echo 'selected';}?>>Normal</option>
+                                        <option value="Tinggi" <?php if($gizi['TBU'] == 'Tinggi'){ echo 'selected';}?>>Tinggi</option>
+                                    </select>
 
-                                    @error('z_score')
+                                    @error('TBU')
                                     <div class="invalid-feedback" style="display: block">
                                         {{ $message }}
                                     </div>
@@ -243,11 +209,16 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>VALIDASI</label>
-                                    <input type="text" name="validasi" value="{{ old('validasi', $gizi->validasi) }}" placeholder="Validasi"
-                                        class="form-control @error('validasi') is-invalid @enderror">
+                                    <label>BB/TB</label>
+                                    <select class="form-control select-category @error('BBTB') is-invalid @enderror"
+                                    name="BBTB">
+                                        <option value="" selected disabled hidden >-- PILIH --</option>
+                                        <option value="Kurus" <?php if($gizi['BBTB'] == 'Kurus'){ echo 'selected';}?>>Kurus</option>
+                                        <option value="Normal" <?php if($gizi['BBTB'] == 'Normal'){ echo 'selected';}?>>Normal</option>
+                                        <option value="Gemuk" <?php if($gizi['BBTB'] == 'Gemuk'){ echo 'selected';}?>>Gemuk</option>
+                                    </select>
 
-                                    @error('validasi')
+                                    @error('BBTB')
                                     <div class="invalid-feedback" style="display: block">
                                         {{ $message }}
                                     </div>
@@ -255,6 +226,7 @@
                                 </div>
                             </div>
                         </div>
+
  
                         <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-paper-plane"></i>
                             UPDATE</button>

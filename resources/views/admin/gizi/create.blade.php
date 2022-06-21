@@ -20,9 +20,10 @@
                         <div class="form-group">
                             <label>NAMA ANAK</label>
                             <select class="form-control select-category @error('dataanak_id') is-invalid @enderror"
-                                name="dataanak_id" id="nama">
+                                name="dataanak_id" id="dataanak_id">
                                 @foreach ($anak as $item)
-                                    <option value="{{ $item->id  }}" selected>{{ $item->nama_anak }}</option>
+                                    <option value="{{ $item->id }}" selected>{{ $item->nama_anak}}</option>
+                                    
                                 @endforeach
                                 <option value="" selected disabled hidden>-- PILIH --</option>
                             </select>
@@ -33,33 +34,17 @@
                             @enderror
                         </div>
 
-                        
-
-                        <div class="row">
+                        {{-- <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>BB/U</label>
-                                    <input type="text" name="BBU" value="{{ old('BBU') }}" placeholder="BBU"
-                                        class="form-control @error('BBU') is-invalid @enderror">
-
-                                    @error('BBU')
-                                    <div class="invalid-feedback" style="display: block">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
+                                    <label>JENIS KELAMIN</label>
+                                    <input type="text" name="dataanak_id" id="jenis_kelamin"  disabled>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>TB/U</label>
-                                    <input type="text" name="TBU" value="{{ old('TBU') }}" placeholder="TBU"
-                                        class="form-control @error('TBU') is-invalid @enderror">
-
-                                    @error('TBU')
-                                    <div class="invalid-feedback" style="display: block">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
+                                    <label>USIA</label>
+                                    <input type="text" name="dataanak_id" id="tgl_lahir" disabled>
                                 </div>
                             </div>
                         </div>
@@ -67,18 +52,17 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>BB/TB</label>
-                                    <input type="text" name="BBTB" value="{{ old('BBTB') }}" placeholder="BBTB"
-                                        class="form-control @error('BBTB') is-invalid @enderror">
-
-                                    @error('BBTB')
-                                    <div class="invalid-feedback" style="display: block">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
+                                    <label>TINGGI BADAN (CM)</label>
+                                    <input type="text" name="dataanak_id" id="tinggi_badan" disabled>
                                 </div>
                             </div>
-                        </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>BERAT BADAN (KG)</label>
+                                    <input type="text" name="dataanak_id" id="berat_badan" disabled>
+                                </div>
+                            </div>
+                        </div>  --}}
 
                         <div class="row">
                             <div class="col-md-6">
@@ -128,11 +112,16 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>STATUS GIZI</label>
-                                    <input type="text" name="status_gizi" value="{{ old('status_gizi') }}" placeholder="Status Gizi"
-                                        class="form-control @error('status_gizi') is-invalid @enderror">
+                                    <label>BB/U</label>
+                                    <select class="form-control select-category @error('BBU') is-invalid @enderror"
+                                    name="BBU">
+                                        <option value="" selected disabled hidden >-- PILIH --</option>
+                                        <option value="Gizi Baik">Gizi Baik</option>
+                                        <option value="Gizi Kurang">Gizi Kurang</option>
+                                        <option value="Gizi Lebih">Gizi Lebih</option>
+                                    </select>
 
-                                    @error('status_gizi')
+                                    @error('BBU')
                                     <div class="invalid-feedback" style="display: block">
                                         {{ $message }}
                                     </div>
@@ -141,11 +130,16 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Z_SCORE</label>
-                                    <input type="text" name="z_score" value="{{ old('z_score') }}" placeholder="Z_Score"
-                                        class="form-control @error('z_score') is-invalid @enderror">
+                                    <label>TB/U</label>
+                                    <select class="form-control select-category @error('TBU') is-invalid @enderror"
+                                    name="TBU">
+                                        <option value="" selected disabled hidden >-- PILIH --</option>
+                                        <option value="Pendek">Pendek</option>
+                                        <option value="Normal">Normal</option>
+                                        <option value="Tinggi">Tinggi</option>
+                                    </select>
 
-                                    @error('z_score')
+                                    @error('TBU')
                                     <div class="invalid-feedback" style="display: block">
                                         {{ $message }}
                                     </div>
@@ -157,11 +151,16 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>VALIDASI</label>
-                                    <input type="text" name="validasi" value="{{ old('validasi') }}" placeholder="Validasi"
-                                        class="form-control @error('validasi') is-invalid @enderror">
+                                    <label>BB/TB</label>
+                                    <select class="form-control select-category @error('BBTB') is-invalid @enderror"
+                                    name="BBTB">
+                                        <option value="" selected disabled hidden >-- PILIH --</option>
+                                        <option value="Kurus">Kurus</option>
+                                        <option value="Normal">Normal</option>
+                                        <option value="Gemuk">Gemuk</option>
+                                    </select>
 
-                                    @error('validasi')
+                                    @error('BBTB')
                                     <div class="invalid-feedback" style="display: block">
                                         {{ $message }}
                                     </div>
@@ -181,11 +180,19 @@
     </section>
 </div>
 @stop
-<script>
- $('#nama').on('change', function(){
-  $('#jenis_kelamin').val($(this).val());
-})
+<script src="{{ asset('assets/modules/jquery.min.js') }}"></script>
+<script type="text/javascript">
+$('#dataanak_id').on('change', (event) => {
+    console.log();
+    getanak(event.target.value).then(anak => {
+        $('#jenis_kelamin').val(anak.jenis_kelamin);
+    });
+});
 
-// init
-$('#nama').change();
+async function getanak(id) {
+        let response = await fetch("{{ route('admin.gizi.store') }}" + id)
+        let data = await response.json();
+
+        return data;
+    }
 </script>

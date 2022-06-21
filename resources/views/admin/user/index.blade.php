@@ -1,5 +1,6 @@
 @extends('layouts.backend.app1')
 
+@section('title', 'Informasi Data User')
 
 @section('content')
 <div class="main-content">

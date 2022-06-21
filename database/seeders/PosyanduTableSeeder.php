@@ -18,15 +18,15 @@ class PosyanduTableSeeder extends Seeder
 
         Posyandu::create([
             'jadwal' => '2022-05-10',
-            'nama_posyandu' => 'Cups N',
-            'tempat' => 'Balades Purwakarta',
+            'nama_posyandu' => 'Posyandu Sari Kasih',
+            'tempat' => 'Desa Bojong, Purwakarta',
             'petugas_id' => '1',
         ]);
         
         Posyandu::create([
             'jadwal' => '2022-04-08',
-            'nama_posyandu' => 'Ancient Forest',
-            'tempat' => 'Rangkas',
+            'nama_posyandu' => 'Mulya Inda',
+            'tempat' => 'Desa Banjarsari, Rangkasbitung',
             'petugas_id' => '2',
         ]);
     }

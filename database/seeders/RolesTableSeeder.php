@@ -40,7 +40,7 @@ class RolesTableSeeder extends Seeder
             'posyandu.index', 'posyandu.create', 'posyandu.edit', 'posyandu.delete',
             'jadwal.index', 'jadwal.create', 'jadwal.edit', 'jadwal.delete',
             'gizi.index', 'gizi.create', 'gizi.edit', 'gizi.delete', 'gizi.show',
-            'users.index','users.edit', 'petugas.show',
+            'users.edit', 'petugas.show',
         ]);
 
         $role3 = Role::create([

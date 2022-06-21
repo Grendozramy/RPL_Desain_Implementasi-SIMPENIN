@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Petugas;
 use Illuminate\Http\Request;
-use App\Models\User;
+
 
 
 class PetugasController extends Controller
@@ -41,8 +41,8 @@ class PetugasController extends Controller
      */
     public function create()
     {
-        $user = User::latest()->get();
-        return view('admin.petugas.create', compact('user'));
+        $petugas = Petugas::latest()->get();
+        return view('admin.petugas.create', compact('petugas'));
     }
 
     /**
@@ -107,7 +107,6 @@ class PetugasController extends Controller
     public function update(Request $request, Petugas $petugas)
     {
         $this->validate($request,[
-            // 'user_id'       => 'required',
             'nama_petugas' => 'required',
             'jabatan_petugas' => 'required',
             'jenis_kelamin' => 'required',
@@ -120,23 +119,22 @@ class PetugasController extends Controller
 
             $petugas = Petugas::findOrFail($petugas->id);
             $petugas->update([
-                // 'user_id'       => $request->input('dataanak_id'),
-                'nama_petugas'       => $request->input('nama_petugas'),
-                'jabatan_petugas'            => $request->input('jabatan_petugas'),
-                'jenis_kelamin'            => $request->input('jenis_kelamin'),
-                'tempat_lahir'            => $request->input('tempat_lahir'),
-                'tanggal_lahir'            => $request->input('tanggal_lahir'),
-                'alamat'            => $request->input('alamat'),
-                'no_telp'            => $request->input('no_telp'),
-                'status'            => $request->input('status'),
+                'nama_petugas'        => $request->input('nama_petugas'),
+                'jabatan_petugas'     => $request->input('jabatan_petugas'),
+                'jenis_kelamin'       => $request->input('jenis_kelamin'),
+                'tempat_lahir'        => $request->input('tempat_lahir'),
+                'tanggal_lahir'       => $request->input('tanggal_lahir'),
+                'alamat'              => $request->input('alamat'),
+                'no_telp'             => $request->input('no_telp'),
+                'status'              => $request->input('status'),
             ]);
-        if ($petugas) {
-            //redirect dengan pesan sukses
-            return redirect()->route('admin.petugas.index')->with(['success' => 'Data Berhasil Diupdate!']);
-        }else{
-            //redirect dengan pesan error
-            return redirect()->route('admin.petugas.index')->with(['error' => 'Data Gagal Diupdate!']);
-        }
+            if($petugas){
+                //redirect dengan pesan sukses
+                return redirect()->route('admin.petugas.index')->with(['success' => 'Data Berhasil Disimpan!']);
+            }else{
+                //redirect dengan pesan error
+                return redirect()->route('admin.petugas.index')->with(['error' => 'Data Gagal Disimpan!']);
+            }
     }
 
     public function show($id)

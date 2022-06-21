@@ -21,24 +21,18 @@ class GiziTableSeeder extends Seeder
             'TBU'            => 'Normal',
             'BBTB'            => 'Normal',
             'Z_BBU'            => '-0.17',
-            'Z_TBU'            => '-0.98',
+            'Z_TBU'            => '-0.96',
             'Z_BBTB'            => '0.44',
-            'status_gizi'            => 'Gizi Normal',
-            'z_score'            => '51.00',
-            'validasi'            => 'sesuai',
         ]);
 
         Gizi::create([
             'dataanak_id'       => '2',
-            'BBU'       => 'Gizi Baik',
+            'BBU'       => 'Gizi Kurang',
             'TBU'            => 'Normal',
             'BBTB'            => 'Normal',
-            'Z_BBU'            => '-0.17',
-            'Z_TBU'            => '-0.98',
-            'Z_BBTB'            => '0.44',
-            'status_gizi'            => 'Gizi Normal',
-            'z_score'            => '51.00',
-            'validasi'            => 'sesuai',
+            'Z_BBU'            => '-2.23',
+            'Z_TBU'            => '-1.97',
+            'Z_BBTB'            => '-1.45',
         ]);
 
         Gizi::create([
@@ -46,25 +40,19 @@ class GiziTableSeeder extends Seeder
             'BBU'       => 'Gizi Baik',
             'TBU'            => 'Normal',
             'BBTB'            => 'Normal',
-            'Z_BBU'            => '-0.17',
-            'Z_TBU'            => '-0.98',
-            'Z_BBTB'            => '0.44',
-            'status_gizi'            => 'Gizi Normal',
-            'z_score'            => '51.00',
-            'validasi'            => 'sesuai',
+            'Z_BBU'            => '-1.26',
+            'Z_TBU'            => '-1.59',
+            'Z_BBTB'            => '-0.32',
         ]);
 
-        Gizi::create([
-            'dataanak_id'       => '4',
-            'BBU'       => 'Gizi Baik',
-            'TBU'            => 'Normal',
-            'BBTB'            => 'Normal',
-            'Z_BBU'            => '-0.17',
-            'Z_TBU'            => '-0.98',
-            'Z_BBTB'            => '0.44',
-            'status_gizi'            => 'Gizi Normal',
-            'z_score'            => '51.00',
-            'validasi'            => 'sesuai',
-        ]);
+        // Gizi::create([
+        //     'dataanak_id'       => '4',
+        //     'BBU'       => 'Gizi Baik',
+        //     'TBU'            => 'Normal',
+        //     'BBTB'            => 'Normal',
+        //     'Z_BBU'            => '1.24',
+        //     'Z_TBU'            => '0.17',
+        //     'Z_BBTB'            => '1.65',
+        // ]);
     }
 }

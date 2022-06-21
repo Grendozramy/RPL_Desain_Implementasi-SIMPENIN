@@ -105,18 +105,7 @@
                                 <div class="table-responsive">
                                     <table class="table table-bordered">
                                         <thead>
-                                            <tr>
-                                                <th>BB/U</th>
-                                                <td style="width:70%">{{ $gizi->BBU}}</td>
-                                            </tr>   
-                                            <tr>
-                                                <th>TB/U</th>
-                                                <td>{{ $gizi->TBU}}</td>  
-                                            </tr>
-                                            <tr>
-                                                <th>BB/TB</th>
-                                                <td>{{ $gizi->BBTB}}</td>
-                                            </tr> 
+                                            
                                             <tr>
                                                 <th>Z_BB/U</th>
                                                 <td>{{ $gizi->Z_BBU}}</td> 
@@ -129,21 +118,23 @@
                                                 <th>Z_BB/TB</th>
                                                 <td>{{ $gizi->Z_BBTB}}</td>
                                             </tr>
+
                                             <tr>
-                                                <th>STATUS GIZI</th>
-                                                <td>{{ $gizi->status_gizi}}</td>
+                                                <th>BB/U</th>
+                                                <td style="width:70%">{{ $gizi->BBU}}</td>
+                                            </tr>   
+                                            <tr>
+                                                <th>TB/U</th>
+                                                <td>{{ $gizi->TBU}}</td>  
                                             </tr>
-                                            <tr> 
-                                                <th>Z_SCORE</th>
-                                                <td>{{ $gizi->z_score}}</td>
-                                            </tr>  
-                                            <tr> 
-                                                <th>VALIDASI</th>
-                                                <td>{{ $gizi->validasi}}</td>
-                                            </tr>  
+                                            <tr>
+                                                <th>BB/TB</th>
+                                                <td>{{ $gizi->BBTB}}</td>
+                                            </tr> 
+                                            
                                         </thead>   
                                     </table>
-                                    <a href="{{ route('admin.anak.index') }}" class="btn btn-primary mr-1" ><i class="fa fa-arrow-left"></i>
+                                    <a href="{{ route('admin.gizi.index') }}" class="btn btn-primary mr-1" ><i class="fa fa-arrow-left"></i>
                                         BACK</a>
                                 </div>
                             </div>

@@ -1,5 +1,6 @@
 @extends('layouts.backend.app1')
 
+@section('title', 'Informasi Data Petugas')
 
 @section('content')
 <div class="main-content">
@@ -103,7 +104,7 @@
 
                     //ajax delete
                     jQuery.ajax({
-                        url: "{{ route("admin.user.index") }}/"+id,
+                        url: "{{ route("admin.petugas.index") }}/"+id,
                         data:   {
                             "id": id,
                             "_token": token

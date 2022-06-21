@@ -133,12 +133,14 @@ class UserController extends Controller
         //assign role
         $user->syncRoles($request->input('role'));
 
-        if($user){
+        if($user -> role('Orangtua')){
             //redirect dengan pesan sukses
-            return redirect()->route('admin.user.index')->with(['success' => 'Data Berhasil Diupdate!']);
-        }else{
-            //redirect dengan pesan error
-            return redirect()->route('admin.user.index')->with(['error' => 'Data Gagal Diupdate!']);
+            return redirect()->route('admin.dashboard.index')->with(['success' => 'Data Berhasil Disimpan!']);
+        }else if ($user -> role('Admin')){
+            //redirect dengan pesan sukses
+            return redirect()->route('admin.dashboard')->with(['success' => 'Data Berhasil Disimpan!']);
+        } else {
+            return redirect()->route('admin.user.index')->with(['error' => 'Data Gagal Disimpan!']);
         }
     }
 

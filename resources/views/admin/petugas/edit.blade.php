@@ -21,7 +21,7 @@
                         @method('PUT')
                         <div class="form-group">
                             <label>NAMA PETUGAS</label>
-                            <input type="text" name="nama_petugas" value="{{ old('nama_petugas', $petugas->nama_petugas) }}" placeholder="Masukkan Jabatan Petugas"
+                            <input type="text" name="nama_petugas" value="{{ old('nama_petugas', $petugas->nama_petugas) }}" placeholder="Masukkan Nama Petugas"
                                 class="form-control @error('nama_petugas') is-invalid @enderror">
 
                             @error('nama_petugas')
@@ -71,7 +71,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>TANGGAL LAHIR</label>
-                                    <input type="date" name="tanggal_lahir" value="{{ old('tanggal_lahir', $petugas->tanggal_lahir) }}" placeholder="Masukkan Usia Anak"
+                                    <input type="date" name="tanggal_lahir" value="{{ old('tanggal_lahir', $petugas->tanggal_lahir) }}" placeholder="Masukkan Tanggal Lahir"
                                         class="form-control @error('tanggal_lahir') is-invalid @enderror">
 
                                     @error('tanggal_lahir')
@@ -90,7 +90,7 @@
                         </div>
                         <div class="form-group">
                             <label>ALAMAT PETUGAS</label>
-                            <input type="text" name="alamat" value="{{ old('alamat', $petugas->alamat) }}" placeholder="Masukkan Jabatan Petugas"
+                            <input type="text" name="alamat" value="{{ old('alamat', $petugas->alamat) }}" placeholder="Masukkan Alamat Petugas"
                                 class="form-control @error('alamat') is-invalid @enderror">
 
                             @error('alamat')
@@ -101,7 +101,7 @@
                         </div>
                         <div class="form-group">
                             <label>NO TELEPON PETUGAS</label>
-                            <input type="text" name="no_telp" value="{{ old('no_telp', $petugas->no_telp) }}" placeholder="Masukkan Jabatan Petugas"
+                            <input type="text" name="no_telp" value="{{ old('no_telp', $petugas->no_telp) }}" placeholder="Masukkan No Telepon Petugas"
                                 class="form-control @error('no_telp') is-invalid @enderror">
 
                             @error('no_telp')
@@ -112,7 +112,7 @@
                         </div>
                         <div class="form-group">
                             <label>STATUS PETUGAS</label>
-                            <select class="form-control select-category @error('jenis_kelamin') is-invalid @enderror"
+                            <select class="form-control select-category @error('status') is-invalid @enderror"
                                     name="status">
                                         <option value="" selected disabled hidden >-- PILIH --</option>
                                         <option value="Aktif" <?php if($petugas['status'] == 'Aktif'){ echo 'selected';}?>>Aktif</option>

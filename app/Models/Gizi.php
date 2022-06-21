@@ -20,7 +20,7 @@ class Gizi extends Model
 
     public function anak()
     {
-        return $this->hasOne(Anak::class, 'dataanak_id');
+        return $this->belongsTo(Anak::class);
     }
 
     
